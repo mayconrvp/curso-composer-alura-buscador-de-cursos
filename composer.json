@@ -1,0 +1,45 @@
+{
+    "name": "mayconrvp/buscador-cursos",
+    "description": "Projeto que busca os cursos no site da Alura",
+    "type": "library",
+    "autoload": {
+        "files": [
+            "./functions.php"
+        ],
+        "psr-4": {
+            "Alura\\BuscadorDeCursos\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Maycon",
+            "email": "maycon.rvp@outlook.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.4",
+        "symfony/dom-crawler": "^5.4",
+        "symfony/css-selector": "^5.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "9",
+        "squizlabs/php_codesniffer": "^3.6",
+        "phan/phan": "^5.3"
+    },
+    "scripts": {
+        "test": "phpunit tests\\TestBuscadorDeCursos.php",
+        "cs": "phpcs --standard=PSR12 src/",
+        "phan": "phan --allow-polyfill-parser",
+        "check": [
+            "@phan",
+            "@cs",
+            "@test"
+        ],
+        "post-update-cmd": [
+            "@test"
+        ]
+    },
+    "scripts-descriptions": {
+        "check": "Roda as verificações do código. PHPUNIT, CS, PHAN."
+    }
+}
